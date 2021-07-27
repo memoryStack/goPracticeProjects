@@ -1,4 +1,4 @@
-package main
+package solution
 
 import (
 	"encoding/csv"
@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func main() {
+func PartA() {
 	f, err := os.Open("problems.csv")
 	if err != nil {
 		return
