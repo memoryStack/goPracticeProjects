@@ -1,14 +1,3 @@
-// package main
-
-// import (
-//    "fmt"
-//    "encoding/csv"
-// )
-
-// func main() {
-
-// }
-
 package main
 
 import (
