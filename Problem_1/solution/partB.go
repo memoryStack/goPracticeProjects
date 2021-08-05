@@ -14,7 +14,7 @@ func timer(duration int, timerChan chan int) {
 	timerChan <- 1
 }
 
-func PartB(time int) {
+func PartB(time int, shuffleQuiz bool) {
 	// Interesting Note: the file problems.csv should be present in the directry from which we are going to run
 	// "main.go" file to run this program
 	// Rule: i will always run program from the root directry (where README.md) is defiend
@@ -26,7 +26,9 @@ func PartB(time int) {
 
 	lines, _ := csv.NewReader(f).ReadAll()
 	totalCorrectAnsweres := 0
-
+	if shuffleQuiz {
+		lines = GetRandomizedQuiz(lines)
+	}
 	var temp string
 	fmt.Printf("Press Enter to start the quiz:\n")
 	fmt.Scanf("%s", &temp)

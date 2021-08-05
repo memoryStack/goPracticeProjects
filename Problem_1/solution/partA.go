@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func PartA() {
+func PartA(shuffleQuiz bool) {
 	f, err := os.Open("problems.csv")
 	if err != nil {
 		return
@@ -15,6 +15,9 @@ func PartA() {
 	defer f.Close()
 
 	lines, _ := csv.NewReader(f).ReadAll()
+	if shuffleQuiz {
+		lines = GetRandomizedQuiz(lines)
+	}
 	totalCorrectAnsweres := 0
 
 	for index, value := range lines {
