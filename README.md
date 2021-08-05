@@ -12,3 +12,7 @@ Learnings from Problem 1
         1. how to use channels
         2. wrote an interesting fact about os.Open("file.txt") in partB.go file {about where this file should be present}
         3. how to use "select" statement while listening from 2 or more go routines
+    Bonus
+        1. learned how to use flags
+        2. learned how to randomize the array
+            command to run the program would be "go run Problem_1/cmd/main.go -shuffle=true A"
