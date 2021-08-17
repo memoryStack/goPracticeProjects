@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -23,11 +22,10 @@ func main() {
 	}
 
 	// file is opened and now let's parse the json and store in a variable
-	// Note: inn order for the auto0-import to work the folder name and the package name
+	// Note: in order for the auto-import to work the folder name and the package name
 	// should be same else auto-import just wouldn't work
-	d := json.NewDecoder(file)
-	var story solution.Story
-	if err := d.Decode(&story); err != nil {
+	story, err := solution.JSONStory(file)
+	if err != nil {
 		panic(err)
 	}
 
