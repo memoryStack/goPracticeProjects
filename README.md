@@ -16,3 +16,11 @@ Learnings from Problem 1
         1. learned how to use flags
         2. learned how to randomize the array
             command to run the program would be "go run Problem_1/cmd/main.go -shuffle=true A"
+
+Learning from Choose Your Own Adventure Exercise
+    1. this awesome tool will convert json object to go type struct automatically https://mholt.github.io/json-to-go/
+    2. if you run this command "go run cmd/main.go --help" in the "goPracticeProjects/ChooseYourOwnAdventure" folder then
+        we can see some "flags" to pass or maybe other info (not sure what) about running the program. it's pretty awesome to me.
+    3. was facing an issue with the auto-import saw how that will be resolved.
+    4. wrote a TODO for error-handling error using Panic. some research will help me grow there.
+    5. learned how to parse json to go structs.
