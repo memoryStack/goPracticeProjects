@@ -3,12 +3,16 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
 	"os"
 
 	"github.com/goPracticeProjects/ChooseYourOwnAdventure/solution"
 )
 
 func main() {
+	// receive the port on which server would be starting
+	port := flag.Int("port", 8080, "port on which server would start")
 	// receive the file name in flags from commandline which will be parsed for our story online
 	fileName := flag.String("file", "jsonFile.json", "json file with the CYOA story")
 
@@ -29,7 +33,11 @@ func main() {
 		panic(err)
 	}
 
+	handler := solution.NewHandler(story)
+	fmt.Printf("Server would be starting on port: %d\n", *port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), handler))
+
 	// using "+v" option to print out all the keys and the contents to get
 	// a better clearity of the data structure
-	fmt.Printf("%+v\n", story)
+	// fmt.Printf("%+v\n", story)
 }

@@ -1,5 +1,5 @@
 # goPracticeProjects
-after learing some basics about GO i will be solving exercises from https://courses.calhoun.io/courses/cor_gophercises course
+after learning some basics about GO i will be solving exercises from https://courses.calhoun.io/courses/cor_gophercises course
 one by one until i get a good enough grasp on the GO
 
 Learnings from Problem 1
@@ -24,3 +24,5 @@ Learning from Choose Your Own Adventure Exercise
     3. was facing an issue with the auto-import saw how that will be resolved.
     4. wrote a TODO for error-handling error using Panic. some research will help me grow there.
     5. learned how to parse json to go structs.
+    6. At this point i understand how to make a web server.
+    7. TODO: need to understand html template in GO.
