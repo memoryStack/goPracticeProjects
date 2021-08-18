@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"html/template"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -58,10 +59,24 @@ func NewHandler(s Story) http.Handler {
 }
 
 func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	err := tpl.Execute(w, h.s["intro"])
-	if err != nil {
-		panic(err)
+	// now what we want to do is serve any chapter on demand
+	// based on parsing the request path
+	path := r.URL.Path
+	if path == "" || path == "/" {
+		path = "/intro"
 	}
+	// it will convert "/intro" to "intro"
+	path = path[1:]
+
+	if chapter, ok := h.s[path]; ok {
+		err := tpl.Execute(w, chapter)
+		if err != nil {
+			log.Printf("%v", err)
+			http.Error(w, "Someting went wrong...", http.StatusInternalServerError)
+		}
+		return
+	}
+	http.Error(w, "Chapter not found", http.StatusNotFound)
 }
 
 // JSONStory ... exporting this func because it's likely that it will be used a lot at multiple places
