@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strings"
 )
 
 type Story map[string]Chapter
@@ -59,9 +60,10 @@ func NewHandler(s Story) http.Handler {
 }
 
 func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
 	// now what we want to do is serve any chapter on demand
 	// based on parsing the request path
-	path := r.URL.Path
+	path := strings.TrimSpace(r.URL.Path)
 	if path == "" || path == "/" {
 		path = "/intro"
 	}
