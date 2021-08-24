@@ -26,3 +26,11 @@ Learning from Choose Your Own Adventure Exercise
     5. learned how to parse json to go structs.
     6. At this point i understand how to make a web server.
     7. TODO: need to understand html template in GO.
+
+Learnings from HTML Link Parser Exercise
+    1. Added 2 todos which i need too investigate.
+    2. Learned how to play with HTML API a little better.
+    3. Learned how nodes work in the HTML when it gets parsed. specially with the nested nodes.
+    4. The solution doesn't work properly with the nested links, like "<a>Text1 <a>Text3</a> Text2 </a>".
+        this test case is also mentioned in the "html1.html" file and in this case "Text2" doesn't get recoroded
+        in the textValue of the first <a> tag, which was expected to be recorded ideally.
